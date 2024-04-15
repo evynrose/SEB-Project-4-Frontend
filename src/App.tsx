@@ -1,5 +1,18 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import Home from './components/Home'
+import Navbar from "./components/Navbar"
+import ConditionsPage from "./components/ConditionsPage"
+
 function App() {
-  return <h1>Hello Project 2!</h1>
+  return (
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/conditions" element={<ConditionsPage />} />
+      </Routes>
+    </Router>
+  )
 }
 
 export default App
