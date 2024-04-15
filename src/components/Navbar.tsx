@@ -23,6 +23,7 @@ function Navbar() {
               <Link to="/login" className="navbar-item">
                 Login
               </Link>
+              <Link></Link>
             </div>
           </div>
         </nav>

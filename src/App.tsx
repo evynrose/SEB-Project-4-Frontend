@@ -8,6 +8,7 @@ import axios from 'axios'
 import Login from "./components/Login"
 import Signup from "./components/Signup"
 import ShowCondition from "./components/ShowCondition"
+import Community from "./components/AddComments"
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
         <Route path="/login" element={<Login fetchUser={fetchUser} />} />
         <Route path='/signup' element={<Signup />} />
         <Route path="/conditions/:conditionId" element={<ShowCondition user={user} />} />
+        <Route path="/:conditionsId/comments" element={<Community user={user} />} />
 
       </Routes>
     </Router>
