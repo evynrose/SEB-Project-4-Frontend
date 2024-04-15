@@ -42,6 +42,15 @@ function ShowCondition({ user }: { user: null | IUser }) { // Functional compone
         }
     }
 
+    function redirectToComments() {
+        try {
+            window.location.href = `/${conditionId}/comments`; // Redirecting to the comments page for the specified conditionId
+        } catch (error) {
+            console.log(error); // Logging error message if redirection fails
+        }
+    }
+
+
     console.log(condition);
 
 
@@ -69,8 +78,11 @@ function ShowCondition({ user }: { user: null | IUser }) { // Functional compone
                     </section>
                     <footer className="modal-card-foot"> {/* Modal footer */}
                         <div className="buttons"> {/* Buttons section */}
-                            {condition && (user?._id === condition.user) && <button className="button is-danger" onClick={deleteCondition}>Delete Condition</button>} {/* Delete condition button */}
+                            {condition && (user?._id === condition.user) && <button className="button is-danger" onClick={deleteCondition}>Delete Condition</button>}
+                            {/* Delete condition button */}
                         </div>
+                        <div className="buttons"> {/* Buttons section */}
+                            {condition && (user?._id === condition.user) && <button className="button is-dark" onClick={redirectToComments}>Add a Comment</button>} </div>
                     </footer>
                 </div>
             </div>
