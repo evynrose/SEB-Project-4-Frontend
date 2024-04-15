@@ -14,6 +14,15 @@ function Navbar() {
               <Link to="/conditions" className="navbar-item">
                 Conditions
               </Link>
+              <Link to="/createconditions" className="navbar-item">
+                Support Others
+              </Link>
+              <Link to="/signup" className="navbar-item">
+                Become a part of our community!
+              </Link>
+              <Link to="/login" className="navbar-item">
+                Login
+              </Link>
             </div>
           </div>
         </nav>

@@ -1,20 +1,22 @@
-function ConditionCard({ name, in_stock, rating }: any) {
+import { ReactDOM } from "react"
+import { Link } from "react-router-dom"
+import { ICondition } from "../interfaces/conditions"
+import { IUser } from "../interfaces/user"
+
+function ConditionCard({ name, info, id }: any) {
   return <div className="column is-one-quarter-desktop is-one-third-tablet">
-    <div className="card">
-      <div className="card-header">
-        <div className="card-header-title">{name}</div>
+    <Link to={`/conditions/${id}`}>
+      <div className="card">
+        <div className="card-header">
+          <div className="card-header-title">{name}</div>
+        </div>
+        <div className="card-content">
+          <h5>{"Information: " + info} <br></br>Click on me for more information! </h5>
+        </div>
       </div>
-      <div className="card-image">
-        <figure className="image image-is-1by1">
-          <img src="https://images.unsplash.com/photo-1504382103100-db7e92322d39?q=80&w=2686&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt={name} />
-        </figure>
-      </div>
-      <div className="card-content">
-        <h5>{"Rating: " + rating}</h5>
-        <h5>{in_stock ? "It's in Stock!" : "Not in stock."}</h5>
-      </div>
-    </div>
+    </Link>
   </div>
+
 }
 
 export default ConditionCard

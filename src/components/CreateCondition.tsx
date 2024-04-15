@@ -1,9 +1,8 @@
 import React, { SyntheticEvent, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-// import { baseUrl } from "../config";
 
-export default function CreateCondition() {
+function CreateCondition() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -25,35 +24,70 @@ export default function CreateCondition() {
     const token = localStorage.getItem("token");
     console.log(token);
     console.log(formData);
-    const resp = await axios.post(`${baseUrl}/conditions`, formData, {
+    const resp = await axios.post('/api/conditions', formData, {
       headers: { Authorization: `Bearer ${token}` },
     });
-    // console.log("resp", resp.data);
+    console.log("resp", resp.data);
     navigate("/conditions");
   }
 
-  // console.log("this is form", formData);
 
 
-  return (
-    <div className="section hero is-flex is-fullheight">
-      <div className="container add is-max-desktop is-flex-grow-0 custom-border-radius p-6">
-        <form onSubmit={handleSubmit}>
-          <div className="title is-size-2 pl-1 mb-5">Add Condition</div>
-          <div className="columns is-multiline p-1 mb-0">
-            <div className="field column">
-              <div className="control has-icons-right">
-                <input
-                  className="input"
-                  placeholder="Name"
-                  type="text"
-                  name={"name"}
-                  onChange={handleChange}
-                  value={formData.name}
-                />
-          <button className="button mt-6">Submit</button>
-        </form>
-      </div>
+  return <div className="section">
+    <div className="container">
+      <form onSubmit={handleSubmit}>
+        <div className="field">
+          <label className="label">Condition Name</label>
+          <div className="control">
+            <input
+              className="input"
+              type="text"
+              name={'name'}
+              onChange={handleChange}
+              value={formData.name}
+            />
+          </div>
+        </div>
+        <div className="field">
+          <label className="label">About You</label>
+          <div className="control">
+            <input
+              className="input"
+              type="text"
+              name={'about'}
+              onChange={handleChange}
+              value={formData.about}
+            />
+          </div>
+        </div>
+        <div className="field">
+          <label className="label">Information About Your Condition</label>
+          <div className="control">
+            <input
+              className="input"
+              type="text"
+              name={'info'}
+              onChange={handleChange}
+              value={formData.info}
+            />
+          </div>
+        </div>
+        <div className="field">
+          <label className="label">Advice</label>
+          <div className="control">
+            <input
+              className="input"
+              type="text"
+              name={'advice'}
+              onChange={handleChange}
+              value={formData.advice}
+            />
+          </div>
+        </div>
+        <button className="button" onClick={handleSubmit}>Submit</button>
+      </form>
     </div>
-  );
+  </div>
 }
+
+export default CreateCondition

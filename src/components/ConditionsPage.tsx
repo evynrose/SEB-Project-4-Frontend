@@ -1,5 +1,4 @@
 import React from "react"
-import TeaCard from "./ConditionCard"
 import ConditionCard from "./ConditionCard"
 
 function ConditionsPage() {
