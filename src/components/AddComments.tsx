@@ -3,12 +3,14 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { IComment } from "../interfaces/comment";
 import { IUser } from "../interfaces/user";
+import { ICondition } from "../interfaces/conditions";
 
 type Comments = null | Array<IComment>;
 
 function Community({ user }: { user: null | IUser }) {
   const navigate = useNavigate();
   const { conditionId } = useParams();
+  console.log(conditionId)
 
   const [formData, setFormData] = useState({
     title: "",
@@ -41,7 +43,7 @@ function Community({ user }: { user: null | IUser }) {
       const token = localStorage.getItem("token");
       console.log(token);
       console.log(formData);
-      const resp = await axios.post(`/${conditionId}/posts`, formData, {
+      const resp = await axios.post(`/api/${conditionId}/posts`, formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       console.log("resp", resp.data);
@@ -57,14 +59,15 @@ function Community({ user }: { user: null | IUser }) {
 
   React.useEffect(() => {
     async function fetchComments() {
-      const resp = await fetch(`/${conditionId}/posts`);
+      const resp = await fetch(`/api/conditions/${conditionId}`);
       console.log(resp);
       const data = await resp.json();
-      console.log(data);
-      setComments(data);
+      console.log(data.comments);
+      setComments(data.comments);
     }
     fetchComments();
   }, []);
+
 
   async function deleteComment(e: any) {
     try {
@@ -74,7 +77,7 @@ function Community({ user }: { user: null | IUser }) {
       const commentId = e.currentTarget.value;
 
       console.log(commentId);
-      await axios.delete(`/posts/` + commentId, {
+      await axios.delete(`/api/posts/` + commentId, {
         headers: { Authorization: `Bearer ${token}` },
       });
       location.reload();
@@ -145,7 +148,7 @@ function Community({ user }: { user: null | IUser }) {
                       <p className="title">{comment.title}</p>
                     </div>
 
-                    <p className="subtitle mx-1 my-2 ">{comment.post}</p>
+                    <p className="subtitle mx-1 my-2 ">{comment.content}</p>
 
                     <footer className="card-footer">
                       <p className="card-footer-item">
@@ -161,7 +164,7 @@ function Community({ user }: { user: null | IUser }) {
                       <div>
                         <button
                           onClick={deleteComment}
-                          value={comment._id}
+                          value={comment.id}
                           className="button deleteComment ml-1 mb-1 is-danger"
                         >
                           Delete Post
@@ -182,3 +185,5 @@ function Community({ user }: { user: null | IUser }) {
 }
 
 export default Community
+
+
