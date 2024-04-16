@@ -24,11 +24,11 @@ const Login = ({ fetchUser }: { fetchUser: Function }) => { // Functional compon
     async function handleSubmit(e: SyntheticEvent) { // Function to handle form submission
         try {
             e.preventDefault() //? Prevents the page from refreshing
-            const resp = await axios.post('/api/login', formData) // Sending a POST request to the login API with form data
-            localStorage.setItem("token", resp.data.token) // Storing the token in localStorage
+            const resp = await axios.post("/api/login", formData) // Sending a POST request to the login API with form data
+            localStorage.setItem('token', resp.data.token) // Storing the token in localStorage
             console.log(resp.data) // Logging the response data to the console
             fetchUser() // Executing the fetchUser function passed as prop
-            navigate('/conditions') // Navigating to the '/songs' route after successful login
+            navigate('/conditions') // Navigating to the '/conditions' route after successful login
         } catch (e: any) { // Handling errors
             setErrorMessage(e.response.data.message) // Setting error message from response data
         }

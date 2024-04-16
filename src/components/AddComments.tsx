@@ -78,7 +78,6 @@ function Community({ user }: { user: null | IUser }) {
         headers: { Authorization: `Bearer ${token}` },
       });
       location.reload();
-      //   navigate('/animals')
     } catch (e: any) {
       console.log(e.response.data);
     }
@@ -141,7 +140,7 @@ function Community({ user }: { user: null | IUser }) {
             <div>
               {comments?.map((comment: any) => {
                 return (
-                  <div className="card comment my-2" key={comment._id}>
+                  <div className="card comment my-2" key={comment.id}>
                     <div className="card content">
                       <p className="title">{comment.title}</p>
                     </div>
@@ -160,14 +159,14 @@ function Community({ user }: { user: null | IUser }) {
 
                     {comment && user && user._id === comment.user && (
                       <div>
-                      <button
-                        onClick={deleteComment}
-                        value={comment._id}
-                        className="button deleteComment ml-1 mb-1 is-danger"
-                      >
-                        Delete Post
-                      </button>
-                      <p className = "is-size-7 has-text-weight-bold is-pulled-right mr-5 mt-4" >Posted by {user.username} </p>
+                        <button
+                          onClick={deleteComment}
+                          value={comment._id}
+                          className="button deleteComment ml-1 mb-1 is-danger"
+                        >
+                          Delete Post
+                        </button>
+                        <p className="is-size-7 has-text-weight-bold is-pulled-right mr-5 mt-4" >Posted by {user.username} </p>
                       </div>
                     )}
                   </div>

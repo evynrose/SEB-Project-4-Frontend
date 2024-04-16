@@ -1,6 +1,6 @@
 export interface ICondition {
     users: string, 
-    _id: string, 
+    id: string, 
     name: string, 
     about: string, 
     info: string, 
