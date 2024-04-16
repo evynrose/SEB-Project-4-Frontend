@@ -44,7 +44,7 @@ function ShowCondition({ user }: { user: null | IUser }) { // Functional compone
 
     function redirectToComments() {
         try {
-            window.location.href = `/${conditionId}/comments`; // Redirecting to the comments page for the specified conditionId
+            window.location.href = `/posts/${conditionId}`; // Redirecting to the comments page for the specified conditionId
         } catch (error) {
             console.log(error); // Logging error message if redirection fails
         }

@@ -1,5 +1,3 @@
-// Create comment interface
-
 import React, { SyntheticEvent, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";

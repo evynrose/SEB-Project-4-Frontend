@@ -39,7 +39,8 @@ function App() {
         <Route path="/login" element={<Login fetchUser={fetchUser} />} />
         <Route path='/signup' element={<Signup />} />
         <Route path="/conditions/:conditionId" element={<ShowCondition user={user} />} />
-        <Route path="/:conditionsId/comments" element={<Community user={user} />} />
+        <Route path="/posts/:conditionsId" element={<Community user={user} />} />
+
 
       </Routes>
     </Router>
