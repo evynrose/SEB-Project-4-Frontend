@@ -5,4 +5,5 @@ export interface IComment {
     date: string;
     time: string;
     user: string;
+    _id: string;
 }

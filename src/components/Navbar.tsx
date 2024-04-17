@@ -18,7 +18,7 @@ function Navbar() {
                 Support Others
               </Link>
               <Link to="/signup" className="navbar-item">
-                Become a part of our community!
+                Sign Up
               </Link>
               <Link to="/login" className="navbar-item">
                 Login

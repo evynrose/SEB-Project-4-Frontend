@@ -14,12 +14,12 @@ function Community({ user }: { user: null | IUser }) {
 
   const [formData, setFormData] = useState({
     title: "",
-    post: "",
+    content: "",
   });
 
   const [errorData, setErrorData] = useState({
     title: "",
-    post: "",
+    content: "",
   });
 
   const [comments, setComments] = React.useState<Comments>(null);
@@ -32,9 +32,10 @@ function Community({ user }: { user: null | IUser }) {
     setFormData(newFormData);
     setErrorData({
       title: "",
-      post: "",
+      content: "",
     });
   }
+
 
   //Handle submit fuinction, add comment to database
   async function handleSubmit(e: SyntheticEvent) {
@@ -50,7 +51,7 @@ function Community({ user }: { user: null | IUser }) {
       navigate(`/posts/${conditionId}`);
       setFormData({
         title: "",
-        post: "",
+        content: "",
       });
     } catch (e: any) {
       setErrorData(e.response.data.errors);
@@ -80,6 +81,7 @@ function Community({ user }: { user: null | IUser }) {
       await axios.delete(`/api/posts/` + commentId, {
         headers: { Authorization: `Bearer ${token}` },
       });
+      console.log(commentId);
       location.reload();
     } catch (e: any) {
       console.log(e.response.data);
@@ -120,16 +122,16 @@ function Community({ user }: { user: null | IUser }) {
                   className="input"
                   placeholder="What do you want to say?"
                   type="text"
-                  name={"post"}
+                  name={"content"}
                   //function to handle typing changes
                   onChange={handleChange}
-                  value={formData.post}
+                  value={formData.content}
                 />
                 <span className="icon is-small is-right">
                   <i className="fa-regular fa-comment"></i>
                 </span>
-                {errorData.post && (
-                  <small className="has-text-danger">{errorData.post}</small>
+                {errorData.content && (
+                  <small className="has-text-danger">{errorData.content}</small>
                 )}
               </div>
             </div>
@@ -143,7 +145,7 @@ function Community({ user }: { user: null | IUser }) {
             <div>
               {comments?.map((comment: any) => {
                 return (
-                  <div className="card comment my-2" key={comment.id}>
+                  <div className="card comment my-2" key={comment._id}>
                     <div className="card content">
                       <p className="title">{comment.title}</p>
                     </div>
@@ -164,7 +166,7 @@ function Community({ user }: { user: null | IUser }) {
                       <div>
                         <button
                           onClick={deleteComment}
-                          value={comment.id}
+                          value={comment._id}
                           className="button deleteComment ml-1 mb-1 is-danger"
                         >
                           Delete Post
