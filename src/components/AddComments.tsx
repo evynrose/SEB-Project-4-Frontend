@@ -39,15 +39,15 @@ function Community({ user }: { user: null | IUser }) {
   //Handle submit fuinction, add comment to database
   async function handleSubmit(e: SyntheticEvent) {
     try {
-      //   e.preventDefault();
+      // e.preventDefault();
       const token = localStorage.getItem("token");
       console.log(token);
       console.log(formData);
-      const resp = await axios.post(`/api/${conditionId}/posts`, formData, {
+      const resp = await axios.post(`/api/posts/${conditionId}`, formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       console.log("resp", resp.data);
-      navigate(`/${conditionId}/posts`);
+      navigate(`/posts/${conditionId}`);
       setFormData({
         title: "",
         post: "",
