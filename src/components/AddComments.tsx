@@ -70,23 +70,23 @@ function Community({ user }: { user: null | IUser }) {
   }, []);
 
 
+
   async function deleteComment(e: any) {
     try {
       const token = localStorage.getItem("token");
       console.log(token);
 
       const commentId = e.currentTarget.value;
-
-      console.log(commentId);
+      console.log(commentId)
       await axios.delete(`/api/posts/` + commentId, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      console.log(commentId);
       location.reload();
     } catch (e: any) {
       console.log(e.response.data);
     }
   }
+
 
   return (
     <>
@@ -166,7 +166,7 @@ function Community({ user }: { user: null | IUser }) {
                       <div>
                         <button
                           onClick={deleteComment}
-                          value={comment._id}
+                          value={comment.id}
                           className="button deleteComment ml-1 mb-1 is-danger"
                         >
                           Delete Post
