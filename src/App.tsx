@@ -9,6 +9,7 @@ import Login from "./components/Login"
 import Signup from "./components/Signup"
 import ShowCondition from "./components/ShowCondition"
 import Community from "./components/AddComments"
+import { IUser } from "./interfaces/user"
 
 function App() {
 
@@ -31,7 +32,7 @@ function App() {
 
   return (
     <Router>
-      <Navbar />
+      <Navbar user={user} setUser={setUser} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/conditions" element={<ConditionsPage />} />

@@ -1,28 +1,46 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom" // Importing necessary modules from React Router
+import { IUser } from "../interfaces/user" // Importing IUser interface
+import { ICondition } from "../interfaces/conditions"
 
-function Navbar() {
+interface NavbarProps { // Defining props interface for Navbar component
+  user: null | IUser | ICondition,// User data or null
+  setUser: Function // Function to set user data
+}
+
+function Navbar({ user, setUser }: NavbarProps) { // Functional component Navbar receiving props
+  console.log("user in the navbar: ", user) // Logging user data to the console
+  const navigate = useNavigate() // Initializing the useNavigate hook for navigation
+
+  function logout() { // Function to handle user logout
+    localStorage.removeItem("token") // Removing token from localStorage
+    setUser(null) // Setting user data to null
+    navigate('/') // Navigating to the '/home' route after logout
+  }
 
   return (
     <>
-      <header>
-        <nav className="navbar is-dark">
-          <div className="container">
-            <div className="navbar-brand">
-              <Link to="/" className="navbar-item">
+      <header> {/* Header section */}
+        <nav> {/* Navbar with custom color */}
+          <div className="container"> {/* Container for navbar content */}
+            <div className="navbar-brand"> {/* Navbar brand section */}
+              <Link to="/" className="navbar-item has-text-dark"> {/* Home link */}
                 Home
               </Link>
-              <Link to="/conditions" className="navbar-item">
+              <Link to="/conditions" className="navbar-item has-text-dark"> {/* Music Library link */}
                 Conditions
               </Link>
-              <Link to="/createconditions" className="navbar-item">
-                Support Others
-              </Link>
-              <Link to="/signup" className="navbar-item">
-                Sign Up
-              </Link>
-              <Link to="/login" className="navbar-item">
+              {/* // ! Show and hide appropriate routes for member/visitor */}
+              {!user && <Link to="/signup" className="navbar-item has-text-dark"> {/* Signup link */}
+                Signup
+              </Link>}
+              {!user && <Link to="/login" className="navbar-item has-text-dark"> {/* Login link */}
                 Login
-              </Link>
+              </Link>}
+              {user && <Link to="/createconditions" className="navbar-item has-text-dark"> {/* Create a Song link */}
+                Support Others
+              </Link>}
+              {user && <button onClick={logout} className="button navbar-item is-dark">Logout</button>} {/* Logout button */}
+              <h2 className='navbar-end has-text-dark is-size-3 px-2'>Helping Hands</h2> {/* Title */}
             </div>
           </div>
         </nav>
@@ -31,4 +49,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default Navbar // Exporting the Navbar component
