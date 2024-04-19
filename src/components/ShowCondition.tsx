@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom"; // Importing hooks fr
 import axios from 'axios'; // Importing Axios for HTTP requests
 import { IUser } from "../interfaces/user"; // Importing IUser interface
 import { ICondition } from "../interfaces/conditions"; //importing icondition interface
+import { baseUrl } from "../config";
 
 function ShowCondition({ user }: { user: null | IUser }) { // Functional component ShowCondition receiving user prop
 
@@ -20,7 +21,7 @@ function ShowCondition({ user }: { user: null | IUser }) { // Functional compone
     React.useEffect(() => { // Effect hook to fetch 
         async function fetchConditions() {
             try {
-                const resp = await fetch(`/api/conditions/${conditionId}`); // Fetching condition data from API
+                const resp = await fetch(`${baseUrl}/conditions/${conditionId}`); // Fetching condition data from API
                 const ConditionsData = await resp.json(); // Parsing response data
                 updateCondition(ConditionsData); // Updating condition state with fetched data
             } catch (e) {
@@ -33,7 +34,7 @@ function ShowCondition({ user }: { user: null | IUser }) { // Functional compone
     async function deleteCondition(e: SyntheticEvent) { // 
         try {
             const token = localStorage.getItem('token'); // Getting token from localStorage
-            await axios.delete(`/api/conditions/` + conditionId, { // Sending DELETE request to delete condition
+            await axios.delete(`${baseUrl}/conditions/` + conditionId, { // Sending DELETE request to delete condition
                 headers: { Authorization: `Bearer ${token}` } // Attaching authorization token to request headers
             });
             navigate('/conditions'); // Navigating to the '/songs' route after successful deletion

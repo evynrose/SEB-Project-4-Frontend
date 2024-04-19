@@ -1,6 +1,7 @@
 import React, { SyntheticEvent, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { baseUrl } from "../config";
 
 function CreateCondition() {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ function CreateCondition() {
     const token = localStorage.getItem("token");
     console.log(token);
     console.log(formData);
-    const resp = await axios.post('/api/conditions', formData, {
+    const resp = await axios.post(`${baseUrl}/conditions`, formData, {
       headers: { Authorization: `Bearer ${token}` },
     });
     console.log("resp", resp.data);

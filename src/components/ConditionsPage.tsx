@@ -1,5 +1,6 @@
 import React from "react"
 import ConditionCard from "./ConditionCard"
+import { baseUrl } from "../config"
 
 function ConditionsPage() {
 
@@ -7,7 +8,7 @@ function ConditionsPage() {
 
   React.useEffect(() => {
     async function fetchConditions() {
-      const resp = await fetch('/api/conditions')
+      const resp = await fetch(`${baseUrl}/conditions`)
       const data = await resp.json()
       setConditions(data)
     }

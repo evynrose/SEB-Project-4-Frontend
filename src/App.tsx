@@ -10,6 +10,7 @@ import Signup from "./components/Signup"
 import ShowCondition from "./components/ShowCondition"
 import Community from "./components/AddComments"
 import { IUser } from "./interfaces/user"
+import { baseUrl } from "./config"
 
 function App() {
 
@@ -18,7 +19,7 @@ function App() {
 
   async function fetchUser() { // Function to fetch user data
     const token = localStorage.getItem('token'); // Getting token from localStorage
-    const resp = await axios.get('/api/user', { // Sending GET request to fetch user data
+    const resp = await axios.get(`${baseUrl}/user`, { // Sending GET request to fetch user data
       headers: { Authorization: `Bearer ${token}` } // Attaching authorization token to request headers
     });
     console.log(resp); // Logging response data to console
