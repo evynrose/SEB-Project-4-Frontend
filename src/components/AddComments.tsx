@@ -136,7 +136,7 @@ function Community({ user }: { user: null | IUser }) {
                 )}
               </div>
             </div>
-            <button className="button my-3"> Add Post </button>
+            <button className="button is-primary ml-auto my-3"> Add Post </button>
           </form>
         </div>
 

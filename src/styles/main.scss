@@ -1,12 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
 
-.navbarColor {
-    color:pink;
+nav.navbarColor {
+    color: #fdfd96;
+}
+.imagesize {
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
 }
 
+.subtitlebackground {
+    background-color: #fdfd96;
+}
 
 // ? Reassign any bulma variables
-$family-sans-serif: "Roboto", sans-serif;
+$family-sans-serif: "Times New Roman", sans-serif;
 
 // ! example on how to customize, skip to section "Add your own Bulma styles":
 // https://bulma.io/documentation/customize/with-sass-cli/

@@ -20,7 +20,7 @@ function Navbar({ user, setUser }: NavbarProps) { // Functional component Navbar
   return (
     <>
       <header> {/* Header section */}
-        <nav> {/* Navbar with custom color */}
+        <nav className="navbarColor"> {/* Navbar with custom color */}
           <div className="container"> {/* Container for navbar content */}
             <div className="navbar-brand"> {/* Navbar brand section */}
               <Link to="/" className="navbar-item has-text-dark"> {/* Home link */}

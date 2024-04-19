@@ -82,7 +82,7 @@ function ShowCondition({ user }: { user: null | IUser }) { // Functional compone
                             {condition && (user?._id === condition.user) && <button className="button is-danger" onClick={deleteCondition}>Delete Condition</button>}
                             {/* Delete condition button */}
                         </div>
-                        <div className="buttons"> {/* Buttons section */}
+                        <div className="buttons has-text-right"> {/* Buttons section */}
                             {condition && (user?._id === condition.user) && <button className="button is-dark" onClick={redirectToComments}>Add a Comment</button>} </div>
                     </footer>
                 </div>
