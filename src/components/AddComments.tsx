@@ -51,6 +51,7 @@ function Community({ user }: { user: null | IUser }) {
       });
       console.log("resp", resp.data);
       navigate(`/posts/${conditionId}`);
+      location.reload();
       setFormData({
         title: "",
         content: "",
@@ -162,16 +163,6 @@ function Community({ user }: { user: null | IUser }) {
 
                     <p className="subtitle mx-1 my-2 ">{comment.content}</p>
 
-                    <footer className="card-footer">
-                      <p className="card-footer-item">
-                        <span>Date: {comment.date}</span>
-                      </p>
-
-                      <p className="card-footer-item">
-                        <span>Time: {comment.time}</span>
-                      </p>
-                    </footer>
-
                     {comment && user && user._id === comment.user && (
                       <div>
                         <button
@@ -181,7 +172,6 @@ function Community({ user }: { user: null | IUser }) {
                         >
                           Delete Post
                         </button>
-                        <p className="is-size-7 has-text-weight-bold is-pulled-right mr-5 mt-4" >Posted by {user.username} </p>
                       </div>
                     )}
                   </div>

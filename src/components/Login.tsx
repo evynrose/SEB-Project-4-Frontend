@@ -47,6 +47,7 @@ const Login = ({ fetchUser }: { fetchUser: Function }) => { // Functional compon
         justifyContent: 'center'
     }}><div className="section"> {/* Rendering the login form */}
         <div className="container">
+            <div className='box'>
             <form onSubmit={handleSubmit}>
                 <div className="field">
                     <label className="label">Email</label>
@@ -75,6 +76,7 @@ const Login = ({ fetchUser }: { fetchUser: Function }) => { // Functional compon
                 </div>
                 <button className="button">Submit</button> {/* Submit button */}
             </form>
+            </div>
         </div>
      </div>
     </div>

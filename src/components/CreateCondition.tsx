@@ -46,6 +46,7 @@ function CreateCondition() {
     }}>
     <div className="section">
     <div className="container">
+      <div className="box">
       <form onSubmit={handleSubmit}>
         <div className="field">
           <label className="label">Condition Name</label>
@@ -97,6 +98,7 @@ function CreateCondition() {
         </div>
         <button className="button" onClick={handleSubmit}>Submit</button>
       </form>
+      </div>
     </div></div>
   </div>
 }

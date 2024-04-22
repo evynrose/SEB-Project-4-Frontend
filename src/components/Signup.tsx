@@ -56,6 +56,7 @@ const Signup = () => { // Functional component Signup
         justifyContent: 'center'
     }}><div className="section">
         <div className="container">
+            <div className='box'>
             <form onSubmit={handleSubmit}>
                 <div className="field">
                     <label className="label">Username</label>
@@ -110,7 +111,9 @@ const Signup = () => { // Functional component Signup
                     </div>
                 </div>
                 <button className="button">Submit</button>
+              
             </form>
+            </div>
         </div>
     </div>
     </div>
