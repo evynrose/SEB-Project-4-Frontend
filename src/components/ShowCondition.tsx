@@ -78,20 +78,21 @@ function ShowCondition({ user }: { user: null | IUser }) { // Functional compone
                         </div>
                     </section>
                     <footer className="modal-card-foot"> {/* Modal footer */}
-                        <div className="buttons">
+                        <div className="buttons is-right">
                             {/* Add Comment button on the right */}
                                 {condition && (user?._id === condition.user) && (
-                                    <button className="button is-warning has-text-light" onClick={redirectToComments}>
+                                    <button className="button is-info has-text-light" onClick={redirectToComments}>
                                         Add Comment
                                     </button>
                                 )}
 
                             {/* Delete Condition button on the left */}
                             {condition && (user?._id === condition.user) && (
-                                <button className="button is-danger is-right" onClick={deleteCondition}>
+                                <button className="button is-danger" onClick={deleteCondition}>
                                     Delete Condition
                                 </button>
                             )}
+
                         </div>
                     </footer>
                 </div>
@@ -100,13 +101,5 @@ function ShowCondition({ user }: { user: null | IUser }) { // Functional compone
         </section>
     );
 }
-
-//   {/* Delete Condition button on the left */}
-//                             {condition && (user?._id === condition.user) && (
-//                                 <button className="button is-danger" onClick={deleteCondition}>
-//                                     Delete Condition
-//                                 </button>
-//                             )}
-
 
 export default ShowCondition; // Exporting the Showcondition component

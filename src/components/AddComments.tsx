@@ -103,7 +103,7 @@ function Community({ user }: { user: null | IUser }) {
       <div className="section hero is-flex is-fullheight is-flex-direction-row">
         <div className="container comment is-max-desktop custom-border-radius p-6">
           <form onSubmit={handleSubmit}>
-            <div className="title is-size-2 pl-1 mb-5">Add Post</div>
+            <div className="title is-size-2 pl-1 mb-5 has-text-dark">Add Post</div>
 
             <div className="field">
               <label className="label"></label>
@@ -145,7 +145,7 @@ function Community({ user }: { user: null | IUser }) {
                 )}
               </div>
             </div>
-            <button className="button is-dark ml-auto my-3"> Add Post </button>
+            <button className="button is-light ml-auto my-3"> Add Post </button>
           </form>
         </div>
 
