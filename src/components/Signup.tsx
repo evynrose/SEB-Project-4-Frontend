@@ -2,6 +2,7 @@ import { SyntheticEvent, useState } from 'react' // Importing necessary modules 
 import axios from 'axios' // Importing Axios for HTTP requests
 import { useNavigate } from 'react-router-dom' // Importing useNavigate hook from React Router
 import { baseUrl } from '../config'
+import clouds from "../assets/clouds.jpeg"
 
 const Signup = () => { // Functional component Signup
 
@@ -46,8 +47,16 @@ const Signup = () => { // Functional component Signup
 
     //Rendering the sign up form 
 
-    return <div className="section">
+    return <div style ={{
+        backgroundImage: `url(${clouds})`,
+        backgroundSize: 'cover',
+        minHeight: '100vH',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+    }}><div className="section">
         <div className="container">
+
             <form onSubmit={handleSubmit}>
                 <div className="field">
                     <label className="label">Username</label>
@@ -104,6 +113,7 @@ const Signup = () => { // Functional component Signup
                 <button className="button">Submit</button>
             </form>
         </div>
+    </div>
     </div>
 }
 
