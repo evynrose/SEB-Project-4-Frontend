@@ -5,6 +5,7 @@ import { IComment } from "../interfaces/comment";
 import { IUser } from "../interfaces/user";
 import { ICondition } from "../interfaces/conditions";
 import { baseUrl } from "../config";
+import clouds from "../assets/clouds.jpeg"
 
 type Comments = null | Array<IComment>;
 
@@ -91,6 +92,14 @@ function Community({ user }: { user: null | IUser }) {
 
   return (
     <>
+     <div style ={{
+        backgroundImage: `url(${clouds})`,
+        backgroundSize: 'cover',
+        minHeight: '100vH',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+    }}>
       <div className="section hero is-flex is-fullheight is-flex-direction-row">
         <div className="container comment is-max-desktop custom-border-radius p-6">
           <form onSubmit={handleSubmit}>
@@ -183,6 +192,7 @@ function Community({ user }: { user: null | IUser }) {
         </div>
       </div>
       {/* </div> */}
+      </div>
     </>
   );
 }

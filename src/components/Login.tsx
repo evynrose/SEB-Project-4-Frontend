@@ -2,6 +2,7 @@ import { SyntheticEvent, useState } from 'react' // Importing necessary modules 
 import axios from 'axios' // Importing Axios for HTTP requests
 import { useNavigate } from 'react-router-dom' // Importing useNavigate hook from React Router
 import { baseUrl } from '../config'
+import clouds from "../assets/clouds.jpeg"
 
 const Login = ({ fetchUser }: { fetchUser: Function }) => { // Functional component Login receiving props
 
@@ -37,7 +38,14 @@ const Login = ({ fetchUser }: { fetchUser: Function }) => { // Functional compon
 
     console.log(formData) // Logging the current form data to the console
 
-    return <div className="section"> {/* Rendering the login form */}
+    return <div style ={{
+        backgroundImage: `url(${clouds})`,
+        backgroundSize: 'cover',
+        minHeight: '100vH',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+    }}><div className="section"> {/* Rendering the login form */}
         <div className="container">
             <form onSubmit={handleSubmit}>
                 <div className="field">
@@ -68,6 +76,7 @@ const Login = ({ fetchUser }: { fetchUser: Function }) => { // Functional compon
                 <button className="button">Submit</button> {/* Submit button */}
             </form>
         </div>
+     </div>
     </div>
 }
 

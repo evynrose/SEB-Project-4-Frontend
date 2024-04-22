@@ -2,6 +2,8 @@ import React, { SyntheticEvent, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { baseUrl } from "../config";
+import clouds from "../assets/clouds.jpeg"
+
 
 function CreateCondition() {
   const navigate = useNavigate();
@@ -34,7 +36,15 @@ function CreateCondition() {
 
 
 
-  return <div className="section">
+  return <div style ={{
+        backgroundImage: `url(${clouds})`,
+        backgroundSize: 'cover',
+        minHeight: '100vH',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+    }}>
+    <div className="section">
     <div className="container">
       <form onSubmit={handleSubmit}>
         <div className="field">
@@ -87,7 +97,7 @@ function CreateCondition() {
         </div>
         <button className="button" onClick={handleSubmit}>Submit</button>
       </form>
-    </div>
+    </div></div>
   </div>
 }
 

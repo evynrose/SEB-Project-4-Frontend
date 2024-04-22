@@ -56,7 +56,6 @@ const Signup = () => { // Functional component Signup
         justifyContent: 'center'
     }}><div className="section">
         <div className="container">
-
             <form onSubmit={handleSubmit}>
                 <div className="field">
                     <label className="label">Username</label>
