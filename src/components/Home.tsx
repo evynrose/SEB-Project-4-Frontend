@@ -20,10 +20,10 @@ function Home() {
         style={{ backgroundImage: `url(${hands})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
       >
         <div className="container">
-          <h1 id="home-title" className="title has-text-weight-bold has-text-dark">
+          <h1 id="home-title" className="title has-text-weight-bold has-text-light is-size-1">
             Helping Hands
           </h1>
-          <button className="button is-primary  is-large" onClick={toggleModal}>Click here to learn our mission</button>
+          <button className="button is-light  is-large" onClick={toggleModal}>Click here to learn our mission!</button>
           <div className={`modal ${modalActive ? "is-active" : ""}`}>
             <div className="modal-background"></div>
             <div className="modal-content">

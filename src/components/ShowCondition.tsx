@@ -69,21 +69,32 @@ function ShowCondition({ user }: { user: null | IUser }) { // Functional compone
                         <div className="container"> {/* Container for modal content */}
                             <div className="columns"> {/* Columns for layout */}
                                 <div className="column"> {/* Column for condition details */}
-                                    <h1 className="title has-text-centered">{condition?.name}</h1> {/* condition name */}
-                                    <p className="subtitle has-text-centered">{condition?.about}</p> {/* about the poster */}
-                                    <p className="subtitle has-text-centered">{condition?.info}</p>
-                                    <p className="subtitle has-text-centered"> {condition?.advice}</p>
+                                    <h1 className="title has-text-centered"><strong>Name: </strong>{condition?.name}</h1> {/* condition name */}
+                                    <p className="subtitle has-text-centered"><strong>About Me: </strong> {condition?.about}</p> {/* about the poster */}
+                                    <p className="subtitle has-text-centered"> <strong>Information: </strong>{condition?.info}</p>
+                                    <p className="subtitle has-text-centered"><strong>Advice for others: </strong>{condition?.advice}</p>
                                 </div>
                             </div>
                         </div>
                     </section>
                     <footer className="modal-card-foot"> {/* Modal footer */}
-                        <div className="buttons"> {/* Buttons section */}
-                            {condition && (user?._id === condition.user) && <button className="button is-danger" onClick={deleteCondition}>Delete Condition</button>}
-                            {/* Delete condition button */}
+                        <div className="buttons">
+                            {/* Delete Condition button on the left */}
+                            {condition && (user?._id === condition.user) && (
+                                <button className="button is-danger" onClick={deleteCondition}>
+                                    Delete Condition
+                                </button>
+                            )}
+
+                            {/* Add Comment button on the right */}
+                            <div className="buttons is-right">
+                                {condition && (user?._id === condition.user) && (
+                                    <button className="button is-warning has-text-light" onClick={redirectToComments}>
+                                        Add Comment
+                                    </button>
+                                )}
+                            </div>
                         </div>
-                        <div className="buttons has-text-right"> {/* Buttons section */}
-                            {condition && (user?._id === condition.user) && <button className="button is-dark" onClick={redirectToComments}>Add a Comment</button>} </div>
                     </footer>
                 </div>
             </div>

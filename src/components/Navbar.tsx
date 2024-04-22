@@ -40,7 +40,7 @@ function Navbar({ user, setUser }: NavbarProps) { // Functional component Navbar
                 Support Others
               </Link>}
               {user && <button onClick={logout} className="button navbar-item is-dark">Logout</button>} {/* Logout button */}
-              <h2 className='navbar-end has-text-dark is-size-3 px-2'>Helping Hands</h2> {/* Title */}
+              <h2 className='navbar-end has-text-dark is-size-3 px-2'></h2> {/* Title */}
             </div>
           </div>
         </nav>
